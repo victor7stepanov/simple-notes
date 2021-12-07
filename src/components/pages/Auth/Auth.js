@@ -5,9 +5,9 @@ export default function Auth({headerTitle, buttonTitle, linkProps}) {
         <section className={'section'}>
             <h1 className={'section__header'}>{headerTitle}</h1>
             <form className={'section__form'} noValidate={true}>
-                <div className={'section__form-input-wrapper'}>
+                <div className={'section__form-input-wrapper'} data-error={'Invalid email'}>
                     <label className={'section__form-label'} htmlFor='#email-input'>Email</label>
-                    <input className={'section__form-input'} type='email' id={'#email-input'} placeholder={'Enter email'} required={true}/>
+                    <input className={'section__form-input section__form-input_error'} type='email' id={'#email-input'} placeholder={'Enter email'} required={true}/>
                 </div>
                 <div className={'section__form-input-wrapper'}>
                     <label className={'section__form-label'} htmlFor='#password-input'>Password</label>
