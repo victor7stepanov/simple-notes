@@ -1,0 +1,25 @@
+.main {
+  height: 100vmax;
+  background-color: #E5E5E5;
+}
+
+.main__burger-wrapper {
+  position: absolute;
+  padding: 25px;
+}
+
+.main__burger-wrapper:before {
+  position: absolute;
+  content: '';
+  background-image: url('img/menu_20dp.svg');
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.main__burger-input {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  display: none;
+}
