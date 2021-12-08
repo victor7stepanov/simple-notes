@@ -13,7 +13,7 @@
   width: 50%;
   height: 100%;
   background-color: #E5E5E5;
-  z-index: 1;
+  z-index: 2;
   margin-left: -90%;
 }
 
@@ -22,7 +22,7 @@
   position: absolute;
   top: 25px;
   right: 25px;
-  background-image: url('img/close_20dp.svg');
+  background-image: url('../../img/close_20dp.svg');
   width: 20px;
   height: 20px;
   cursor: pointer;

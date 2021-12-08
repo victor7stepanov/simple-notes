@@ -1,25 +1,17 @@
-import './Auth.scss';
+import Form from '../../Form/Form';
 
-export default function Auth({headerTitle, buttonTitle, linkProps}) {
+export default function Auth() {
     return (
-        <section className={'section'}>
-            <h1 className={'section__header'}>{headerTitle}</h1>
-            <form className={'section__form'} noValidate={true}>
-                <div className={'section__form-input-wrapper'} data-error={'Invalid email'}>
-                    <label className={'section__form-label'} htmlFor='#email-input'>Email</label>
-                    <input className={'section__form-input section__form-input_error'} type='email' id={'#email-input'} placeholder={'Enter email'} required={true}/>
-                </div>
-                <div className={'section__form-input-wrapper'}>
-                    <label className={'section__form-label'} htmlFor='#password-input'>Password</label>
-                    <input className={'section__form-input'} type='password' id={'#password-input'} placeholder={'Enter password'} required={true}/>
-                </div>
-                <button className={'section__form-button'} type={'submit'}>{buttonTitle}</button>
-            </form>
-            <div className={'section__link-container'}>
-                {linkProps.map((link) => {
-                    return <a className={'section__link'} key={link.id} href={link.href}>{link.title}</a>
-                })}
-            </div>
-        </section>
+            <Form
+                inputItems={[
+                    {id: '#section-email-input', className: 'form__input form_error-border', errorMessage: 'Invalid email', labelTitle: 'Email', type: 'email', placeholder: 'Enter email'},
+                    {id: '#section-password-input', className: 'form__input', labelTitle: 'Password', type: 'password', placeholder: 'Enter password'}
+                ]}
+                buttonTitle={'Login'}
+                linkProps={[
+                    {id: '1', title: 'Forgotten password', href: '#'},
+                    {id: '2', title: 'Create new account', href: '#'}
+                ]}
+            />
     )
 }

@@ -36,7 +36,6 @@ blockquote, q {
 }
 blockquote:before, blockquote:after,
 q:before, q:after {
-  content: '';
   content: none;
 }
 table {
@@ -49,15 +48,7 @@ body {
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 16px;
   font-weight: 400;
+  color: #262526;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  color: #1151F3;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
 }
