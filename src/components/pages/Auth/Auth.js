@@ -1,7 +1,9 @@
+import './Auth.scss';
 import Form from '../../Form/Form';
 
 export default function Auth() {
     return (
+        <div className={'auth'}>
             <Form
                 inputItems={[
                     {id: '#section-email-input', className: 'form__input form_error-border', errorMessage: 'Invalid email', labelTitle: 'Email', type: 'email', placeholder: 'Enter email'},
@@ -13,5 +15,6 @@ export default function Auth() {
                     {id: '2', title: 'Create new account', href: '#'}
                 ]}
             />
+        </div>
     )
 }

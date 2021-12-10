@@ -1,5 +1,4 @@
 .main {
-  position: relative;
   height: 100vh;
   background-color: #E5E5E5;
 }
@@ -9,8 +8,9 @@
   position: absolute;
   top: 25px;
   left: 25px;
-  background-image: url('img/menu_20dp.svg');
+  background-image: url('../img/menu_20dp.svg');
   width: 20px;
   height: 20px;
   cursor: pointer;
 }
+

@@ -1,7 +1,9 @@
 import './Link.scss';
 
-export default function Link({link}) {
+export default function Link({linkObj}) {
     return (
-        <a className={'link'} key={link.id} href={link.href}>{link.title}</a>
+        <a className={'link'} key={linkObj.id}
+           href={linkObj.href}>{linkObj.title}
+        </a>
     )
 }
