@@ -1,4 +1,9 @@
 .checkbox {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox__input {
   cursor: pointer;
   width: 15px;
   height: 15px;
@@ -6,7 +11,7 @@
   margin-right: 10px;
 }
 
-.checkbox:checked:after {
+.checkbox__input:checked:after {
   content: '';
   position: absolute;
   width: 15px;
@@ -18,3 +23,4 @@
 .checkbox__label {
   cursor: pointer;
 }
+

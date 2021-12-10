@@ -1,6 +1,6 @@
 import './Form.scss';
 import Button from '../UI/Button/Button';
-import Link from "../UI/Link/Link";
+import LinkUI from "../UI/LinkUI/LinkUI";
 
 export default function Form({inputItems, buttonTitle, linkProps, textAreaProps}) {
     return (
@@ -42,7 +42,7 @@ export default function Form({inputItems, buttonTitle, linkProps, textAreaProps}
             </div>
             <div className={'form__link-container'}>
                 {linkProps.map((link) => {
-                    return <Link linkObj={link} key={link.id}/>
+                    return <LinkUI linkObj={link} key={link.id}/>
                 })}
             </div>
         </form>

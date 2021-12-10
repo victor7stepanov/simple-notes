@@ -1,0 +1,64 @@
+.card {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+.card__user-name {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  max-height: 160px;
+  max-width: 400px;
+  padding: 20px 5px 20px 20px;
+  border-radius: 4px;
+  box-shadow: #4F4F50 2px 3px 8px 0;
+  background-color: #FFFFFF;
+}
+
+.card__user-name-avatar {
+  width: 120px;
+  height: 120px;
+}
+
+.card__user-name-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.card__user-info, .card__user-auth {
+  max-height: 220px;
+  max-width: 400px;
+  padding: 20px 5px 20px 20px;
+  border-radius: 4px;
+  box-shadow: #4F4F50 2px 3px 8px 0;
+  background-color: #FFFFFF;
+}
+
+.card__user-info-title, .card__user-auth-title {
+  margin-bottom: 16px;
+  font-weight: 700;
+}
+
+.card__user-info-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.card__user-auth {
+  display: flex;
+}
+
+.card__user-auth-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.card__user-auth-container .button {
+  margin-bottom: 10px;
+  max-width: 182px;
+  margin-right: 10px;
+}

@@ -1,0 +1,59 @@
+.about-app {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+.about-app__description, .about-app__dev, .about-app__info {
+  max-height: 160px;
+  max-width: 400px;
+  padding: 20px 5px 20px 20px;
+  border-radius: 4px;
+  box-shadow: #4F4F50 2px 3px 8px 0;
+  background-color: #FFFFFF;
+}
+
+.about-app__description-title, .about-app__info-title {
+  margin-bottom: 16px;
+  font-weight: 700;
+}
+
+.about-app__description-paragraph {
+  color: #4F4F50;
+  line-height: 20px;
+  padding-right: 5px;
+  margin-bottom: 30px;
+}
+
+.about-app__dev {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.about-app__dev-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+}
+
+.about-app__dev-info-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.about-app__dev-info-container .info-field .linkUI {
+  font-size: 14px;
+  padding-left: 2px;
+}
+
+.about-app__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.about-app__info-container {
+  display: flex;
+}

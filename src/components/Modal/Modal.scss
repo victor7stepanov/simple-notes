@@ -12,6 +12,7 @@
   border-radius: 4px;
   background-color: #FFFFFF;
   z-index: 2;
+  box-shadow: #4F4F50 2px 3px 8px 0;
   display: none;
 }
 
@@ -20,7 +21,7 @@
   position: absolute;
   top: 20px;
   right: 20px;
-  background-image: url('../../../img/close_20dp.svg');
+  background-image: url('../../img/close_20dp.svg');
   width: 20px;
   height: 20px;
   cursor: pointer;

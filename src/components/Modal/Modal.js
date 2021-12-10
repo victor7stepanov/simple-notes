@@ -1,5 +1,5 @@
 import './Modal.scss';
-import Form from '../../Form/Form';
+import Form from '../Form/Form';
 
 export default function Modal({headerTitle}) {
     return (
