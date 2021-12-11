@@ -1,4 +1,5 @@
 import './Menu.scss';
+import Button from '../UI/Button/Button';
 
 export default function Menu({menuItems}) {
     return (
@@ -7,7 +8,9 @@ export default function Menu({menuItems}) {
                 {menuItems.map((item) => {
                     return (
                         <li className={'menu__list-item'} key={item.id}>
-                            <a className={'menu__list-link'} href={item.href}>{item.title}</a>
+                            <Button className={'menu__list-link'} type={'button'}
+                                    title={item.title} linkButton={true}
+                            />
                         </li>
                     )
                 })}

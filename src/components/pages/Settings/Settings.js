@@ -24,7 +24,7 @@ export default function Settings({obj}) {
                     <label className={'settings__font-size-label'}
                            htmlFor={'#font-size'}>Font size</label>
                     <select className={'settings__font-size-select'} name={'font-size'} id={'#font-size'}>
-                        <option value={14} selected={true}>14</option>
+                        <option value={14} defaultValue={true}>14</option>
                         <option value={16}>16</option>
                         <option value={18}>18</option>
                         <option value={20}>20</option>

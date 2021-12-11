@@ -40,12 +40,11 @@
   color: #262526;
   font-size: 45px;
   font-weight: 700;
+  border: none;
+  background: transparent;
 }
 
-a.menu__list-link {
-  text-decoration: none;
-}
-
-a.menu__list-link:hover {
+.menu__list-link:hover {
+  cursor: pointer;
   text-decoration: underline;
 }

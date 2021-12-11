@@ -3,9 +3,11 @@
 }
 
 .modal {
-  position: absolute;
-  top: 10%;
-  left: 25px;
+  position: fixed;
+  left:50%;
+  top:50%;
+  margin-left: -200px;
+  margin-top: -250px;
   min-width: 300px;
   height: auto;
   padding: 25px;
@@ -36,5 +38,6 @@
 @media (max-width: 395px) {
   .modal {
     min-width: 200px;
+    margin-left: -130px;
   }
 }

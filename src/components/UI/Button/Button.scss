@@ -21,3 +21,15 @@
 .button_background-color_red {
   background-color: #F31155;
 }
+
+.button-link {
+  background-color: transparent;
+  border: none;
+  color: #1151F3;
+  font-size: 14px;
+}
+
+.button-link:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}

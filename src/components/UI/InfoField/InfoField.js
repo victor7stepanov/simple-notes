@@ -11,13 +11,14 @@ export default function InfoField({infoField, editableInput = false,
 
     return (
         <div className={'info-field'}>
-            <span className={'info-field__title'}>
+            <label className={'info-field__label'} htmlFor={infoField.id}>
                 {infoField.title}
-            </span>
+            </label>
             { inputLink
                 ? <LinkUI linkObj={linkObj}/>
                 : <input className={inputClassName} type={inputType} value={infoField.value}
                          placeholder={infoField.placeholder} readOnly={!editableInput}
+                         id={infoField.id}
                 />
             }
         </div>
