@@ -1,11 +1,7 @@
-.main:before {
-  //z-index: 1;
-}
-
 .modal {
   position: fixed;
-  left:50%;
-  top:50%;
+  left: 50%;
+  top: -50%;
   margin-left: -200px;
   margin-top: -250px;
   min-width: 300px;
@@ -13,9 +9,13 @@
   padding: 25px;
   border-radius: 4px;
   background-color: #FFFFFF;
-  z-index: 2;
   box-shadow: #4F4F50 2px 3px 8px 0;
-  display: none;
+  z-index: 2;
+  transition: top .62s ease-in;
+}
+
+.modal.open {
+  top: 50%;
 }
 
 .modal:after {

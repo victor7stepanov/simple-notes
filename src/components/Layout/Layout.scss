@@ -1,0 +1,33 @@
+.main {
+  height: 100vh;
+  background-color: #E5E5E5;
+}
+
+.main__backdrop {
+  position: fixed;
+  background: rgba(0, 0, 0, .5);
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+  transition: z-index .62s ease-in;
+}
+
+.main__burger {
+  position: relative;
+  top: 25px;
+  left: 25px;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.main__burger:after {
+  content: '';
+  position: absolute;
+  background-image: url('../../img/menu_20dp.svg');
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}

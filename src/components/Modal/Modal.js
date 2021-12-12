@@ -1,9 +1,9 @@
 import './Modal.scss';
 import Form from '../Form/Form';
 
-export default function Modal({headerTitle}) {
+export default function Modal({headerTitle, open}) {
     return (
-        <section className={'modal'}>
+        <section className={open ? 'modal open' : 'modal'}>
             <h2 className={'modal__header'}>{headerTitle}</h2>
             <Form
                 inputItems={[

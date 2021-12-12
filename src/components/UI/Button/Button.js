@@ -1,10 +1,14 @@
 import './Button.scss';
 
-export default function Button({className = 'button', title, type, backgroundColor, linkButton = false, id}) {
+export default function Button({className = 'button', title, type,
+                                backgroundColor, linkButton = false,
+                                id, buttonHandler}) {
 
     if (linkButton) {
         return (
-            <button className={className} type={type} id={id}>{title}</button>
+            <button className={'button-link'} type={type}
+                    id={id} onClick={buttonHandler}
+            >{title}</button>
         )
     }
 
@@ -18,6 +22,8 @@ export default function Button({className = 'button', title, type, backgroundCol
     }
 
     return (
-        <button className={buttonClassName.join(' ')} type={type}>{title}</button>
+        <button className={buttonClassName.join(' ')} type={type}
+                onClick={buttonHandler}
+        >{title}</button>
     )
 }

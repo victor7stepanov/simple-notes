@@ -1,7 +1,5 @@
-import MainPage from './MainPage/MainPage';
+import IndexPage from './IndexPage/IndexPage';
 
 export default function App() {
-  return (
-      <MainPage/>
-  );
+  return <IndexPage/>;
 }

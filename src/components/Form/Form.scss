@@ -67,6 +67,15 @@
   font-weight: 600;
 }
 
+.form__link {
+  color: #1151F3;
+  text-decoration: none;
+}
+
+.form__link:hover {
+  text-decoration: underline;
+}
+
 .form__button-container {
   display: flex;
   justify-content: center;

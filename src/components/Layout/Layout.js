@@ -1,17 +1,26 @@
-import './MainPage.scss';
-import Menu from '../components/Menu/Menu';
-import Page from '../components/Page/Page';
-import Modal from '../components/Modal/Modal';
-import Auth from '../components/pages/Auth/Auth';
-// import Notes from '../components/pages/Notes/Notes';
-// import Card from '../components/pages/Card/Card';
-// import AboutApp from '../components/pages/AboutApp/AboutApp';
-// import Settings from '../components/pages/Settings/Settings';
+import './Layout.scss';
+import {useState} from 'react';
+import Menu from '../Menu/Menu';
+import Page from '../Page/Page';
+import Auth from '../pages/Auth/Auth';
+import Modal from '../Modal/Modal';
 
-export default function MainPage() {
+export default function Layout() {
+    const [toggleMenu, setToggleMenu] = useState(false);
+    const burgerHandler = () => setToggleMenu(!toggleMenu);
+    const backdropMenuHandler = () => setToggleMenu(!toggleMenu);
+
+    const [modal, setModal] = useState(false);
+    const buttonHandler = () => setModal(!modal);
+    const backdropModalHandler = () => setModal(!modal);
+
     return (
-        <main className="main">
-            <Menu menuItems={[
+        <main className={'main'}>
+            <button className={'main__burger'} onClick={burgerHandler}/>
+            {toggleMenu ? <div className={'main__backdrop'} onClick={backdropMenuHandler}/> : null}
+            {modal ? <div className={'main__backdrop'} onClick={backdropModalHandler}/> : null}
+
+            <Menu burgerHandler={burgerHandler} open={toggleMenu} menuItems={[
                 {id: '1', title: 'Notes', className: 'menu__list-link'},
                 {id: '2', title: 'Deleted notes', className: 'menu__list-link'},
                 {id: '3', title: 'Card', className: 'menu__list-link'},
@@ -19,8 +28,8 @@ export default function MainPage() {
                 {id: '5', title: 'About app', className: 'menu__list-link'},
                 {id: '6', title: 'Exit', className: 'menu__list-link'},
             ]}/>
-            <Page headerTitle={'Card'}>
-                <Auth/>
+            <Page headerTitle={'Log in to Simple Note'}>
+                <Auth buttonHandler={buttonHandler}/>
                 {/*<Notes notes={[*/}
                 {/*    {id: '1', title: `Купить хлеб`},*/}
                 {/*    {id: '2', title: `Совещание в 20 часов`},*/}
@@ -63,7 +72,7 @@ export default function MainPage() {
                 {/*}} />*/}
                 {/*<Settings/>*/}
             </Page>
-            <Modal headerTitle={'Change password'}/>
+            <Modal headerTitle={'Change password'} open={modal}/>
         </main>
     )
 }

@@ -23,10 +23,11 @@
 }
 
 .button-link {
-  background-color: transparent;
+  background: none;
   border: none;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 16px;
   color: #1151F3;
-  font-size: 14px;
 }
 
 .button-link:hover {

@@ -1,7 +1,8 @@
 import './Form.scss';
 import Button from '../UI/Button/Button';
 
-export default function Form({inputItems, buttonProps, linkProps, textAreaProps}) {
+export default function Form({inputItems, buttonProps, linkProps,
+                              textAreaProps, buttonHandler}) {
     return (
         <form className={'.form'} noValidate={true}>
             {inputItems.map((input) => {
@@ -41,9 +42,12 @@ export default function Form({inputItems, buttonProps, linkProps, textAreaProps}
             </div>
             <div className={'form__link-container'}>
                 {linkProps.map((link) => {
-                    return <Button title={link.title} key={link.id}
-                                   className={link.className}
-                                   linkButton={true} type={link.type}/>
+                    return link.isLink
+                        ? <a className={'form__link'} href="#1" key={link.id}>{link.title}</a>
+                        : <Button title={link.title} key={link.id}
+                              className={link.className} buttonHandler={buttonHandler}
+                              linkButton={true} type={link.type}
+                        />
                 })}
             </div>
         </form>

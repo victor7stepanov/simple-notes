@@ -1,7 +1,7 @@
 import './Auth.scss';
 import Form from '../../Form/Form';
 
-export default function Auth() {
+export default function Auth({buttonHandler}) {
     return (
         <div className={'auth'}>
             <Form
@@ -12,8 +12,9 @@ export default function Auth() {
                 buttonProps={{title: 'Login', type: 'submit'}}
                 linkProps={[
                     {id: '1', className: 'button-link', title: 'Forgotten password', type: 'button'},
-                    {id: '2', className: 'button-link', title: 'Create new account', type: 'button'}
+                    {id: '2', className: 'button-link', title: 'Create new account', type: 'button', isLink: true}
                 ]}
+                buttonHandler={buttonHandler}
             />
         </div>
     )

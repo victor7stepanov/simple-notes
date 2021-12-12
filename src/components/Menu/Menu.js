@@ -1,16 +1,14 @@
 import './Menu.scss';
-import Button from '../UI/Button/Button';
 
-export default function Menu({menuItems}) {
+export default function Menu({open, menuItems, burgerHandler}) {
     return (
-        <nav className={'menu'}>
+        <nav className={open ? 'menu open' : 'menu'}>
+            <button className={'menu__close'} onClick={burgerHandler}/>
             <ul className={'menu__list'}>
                 {menuItems.map((item) => {
                     return (
                         <li className={'menu__list-item'} key={item.id}>
-                            <Button className={'menu__list-link'} type={'button'}
-                                    title={item.title} linkButton={true}
-                            />
+                            <a className={'menu__list-link'} href={'#1'}>{item.title}</a>
                         </li>
                     )
                 })}

@@ -1,23 +1,28 @@
-.main:before {
-  content: '';
-  display: block;
-  position: fixed;
-  background: rgba(0, 0, 0, .5);
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-}
-
 .menu {
   position: absolute;
-  height: 100vh;
+  top: 0;
+  height: 100%;
   background-color: #E5E5E5;
   z-index: 2;
   box-shadow: #4F4F50 2px 3px 8px 0;
   margin-left: -450px;
+  transition: margin-left .62s ease-in;
 }
 
-.menu:after {
+.menu.open {
+  margin-left: 0;
+}
+
+.menu__close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.menu__close:after {
   content: '';
   position: absolute;
   top: 25px;
@@ -41,7 +46,7 @@
   font-size: 45px;
   font-weight: 700;
   border: none;
-  background: transparent;
+  background: none;
 }
 
 .menu__list-link:hover {
