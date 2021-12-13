@@ -2,12 +2,12 @@ import './Button.scss';
 
 export default function Button({className = 'button', title, type,
                                 backgroundColor, linkButton = false,
-                                id, buttonHandler}) {
+                                id, toggleModalHandler}) {
 
     if (linkButton) {
         return (
             <button className={'button-link'} type={type}
-                    id={id} onClick={buttonHandler}
+                    id={id} onClick={toggleModalHandler}
             >{title}</button>
         )
     }
@@ -23,7 +23,6 @@ export default function Button({className = 'button', title, type,
 
     return (
         <button className={buttonClassName.join(' ')} type={type}
-                onClick={buttonHandler}
         >{title}</button>
     )
 }

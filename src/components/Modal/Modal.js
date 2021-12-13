@@ -1,9 +1,10 @@
 import './Modal.scss';
 import Form from '../Form/Form';
 
-export default function Modal({headerTitle, open}) {
+export default function Modal({headerTitle, isOpen, toggleModalHandler}) {
     return (
-        <section className={open ? 'modal open' : 'modal'}>
+        <section className={isOpen ? 'modal open' : 'modal'}>
+            <button className={'close-button'} onClick={toggleModalHandler}/>
             <h2 className={'modal__header'}>{headerTitle}</h2>
             <Form
                 inputItems={[

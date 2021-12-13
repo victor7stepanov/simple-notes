@@ -1,14 +1,15 @@
 import './Menu.scss';
+import {Link} from "react-router-dom";
 
-export default function Menu({open, menuItems, burgerHandler}) {
+export default function Menu({isOpen, menuItems, burgerHandler}) {
     return (
-        <nav className={open ? 'menu open' : 'menu'}>
-            <button className={'menu__close'} onClick={burgerHandler}/>
+        <nav className={isOpen ? 'menu open' : 'menu'}>
+            <button className={'close-button'} onClick={burgerHandler}/>
             <ul className={'menu__list'}>
                 {menuItems.map((item) => {
                     return (
-                        <li className={'menu__list-item'} key={item.id}>
-                            <a className={'menu__list-link'} href={'#1'}>{item.title}</a>
+                        <li className={'menu__list-item'} key={item.id} onClick={burgerHandler}>
+                            <Link to={item.path} className={'menu__list-link'}>{item.title}</Link>
                         </li>
                     )
                 })}

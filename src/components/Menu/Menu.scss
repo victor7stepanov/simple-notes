@@ -13,7 +13,7 @@
   margin-left: 0;
 }
 
-.menu__close {
+.close-button {
   position: absolute;
   top: 0;
   right: 0;
@@ -22,7 +22,7 @@
   outline: none;
 }
 
-.menu__close:after {
+.close-button:after {
   content: '';
   position: absolute;
   top: 25px;
@@ -41,15 +41,16 @@
   margin-bottom: 35px;
 }
 
-.menu__list-link {
+a.menu__list-link {
   color: #262526;
   font-size: 45px;
   font-weight: 700;
+  text-decoration: none;
   border: none;
   background: none;
 }
 
-.menu__list-link:hover {
+a.menu__list-link:hover {
   cursor: pointer;
   text-decoration: underline;
 }
