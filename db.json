@@ -1,0 +1,67 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "v@ya.ru",
+      "password": "admin1234",
+      "avatar": "",
+      "userName": "",
+      "firstName": "",
+      "birthDate": "",
+      "country": "",
+      "city": "",
+      "registrationDate": "14.12.2021",
+      "latestAuthorization": ""
+    },
+    {
+      "id": 2,
+      "email": "mail@ya.ru",
+      "password": "guest1234",
+      "avatar": "",
+      "userName": "",
+      "firstName": "",
+      "birthDate": "",
+      "country": "",
+      "city": "",
+      "registrationDate": "15.12.2021",
+      "latestAuthorization": ""
+    }
+  ],
+  "notes": [
+    {
+      "userId": 1,
+      "id": 1,
+      "title": "buy tickets to Moscow"
+    },
+    {
+      "userId": 1,
+      "id": 2,
+      "title": "meeting at 20"
+    },
+    {
+      "userId": 2,
+      "id": 1,
+      "title": "react redux"
+    }
+  ],
+  "deletedNotes": [
+    {
+      "userId": 1,
+      "deletedNoteId": 1,
+      "body": "buy psychology book"
+    },
+    {
+      "userId": 1,
+      "deletedNoteId": 2,
+      "body": "buy fitness book"
+    }
+  ],
+  "settings": [
+    {
+      "userId": 1,
+      "theme": "light",
+      "fontSize": 16,
+      "isHideDeletedNotes": false
+    }
+  ]
+}

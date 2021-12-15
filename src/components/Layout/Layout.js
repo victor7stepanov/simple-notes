@@ -3,8 +3,11 @@ import {useState} from 'react';
 import Menu from '../Menu/Menu';
 import Modal from '../Modal/Modal';
 import {Outlet} from 'react-router-dom';
+import {useSelector} from 'react-redux';
+import Spinner from '../UI/Spinner/Spinner';
 
 export default function Layout({isAuth}) {
+
     const menuItems = isAuth
     ? [
             {id: '1', title: 'Notes', className: 'menu__list-link', path: '/'},
@@ -15,8 +18,8 @@ export default function Layout({isAuth}) {
             {id: '6', title: 'Exit', className: 'menu__list-link', path: '/'}
     ]
     : [
-            {id: '1', title: 'Sign up', className: 'menu__list-link', path: '/'},
-            {id: '2', title: 'Login', className: 'menu__list-link', path: 'login'},
+            {id: '1', title: 'Login', className: 'menu__list-link', path: '/'},
+            {id: '2', title: 'Sign up', className: 'menu__list-link', path: 'signup'},
             {id: '3', title: 'About app', className: 'menu__list-link', path: 'about'}
     ]
 
@@ -28,6 +31,8 @@ export default function Layout({isAuth}) {
     const toggleModalHandler = () => setOpenedModal(!openedModal);
     const backdropModalHandler = () => setOpenedModal(!openedModal);
 
+    const {loadingDataBase} = useSelector((state) => state.dataBase);
+
     return (
         <main className={'main'}>
             <button className={'main__burger'} onClick={burgerHandler}/>
@@ -35,7 +40,7 @@ export default function Layout({isAuth}) {
             {openedModal ? <div className={'main__backdrop'} onClick={backdropModalHandler}/> : null}
 
             <Menu burgerHandler={burgerHandler} isOpen={openedMenu} menuItems={menuItems}/>
-            <Outlet/>
+            { loadingDataBase ? <Spinner/> : <Outlet/>}
             <Modal headerTitle={'Change password'} isOpen={openedModal}
                    toggleModalHandler={toggleModalHandler}
             />

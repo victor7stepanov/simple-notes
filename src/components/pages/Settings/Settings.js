@@ -11,15 +11,14 @@ export default function Settings({settingsProps}) {
                         <span className={'settings__theme-title'}>Theme</span>
                         <div className={'settings__theme-radio-inner'}>
                             <input className={'settings__theme-radio-input'} type={'radio'}
-                                   name={'theme'} value={'light'} id={'#light'} readOnly={true}
-                                   checked={true}
+                                   name={'theme'} value={'light'} id={'#light'} checked={true}
+                                   readOnly={true}
                             />
                             <label className={'settings__theme-radio-label'} htmlFor={'#light'}>Light</label>
                         </div>
                         <div className={'settings__theme-radio-inner'}>
                             <input className={'settings__theme-radio-input'} type={'radio'}
                                    name={'theme'} value={'dark'} id={'#dark'}
-                                   disabled={true}
                             />
                             <label className={'settings__theme-radio-label'} htmlFor={'#dark'}>Dark</label>
                         </div>
@@ -27,14 +26,13 @@ export default function Settings({settingsProps}) {
                     <div className={'settings__inner'}>
                         <label className={'settings__font-size-label'}
                                htmlFor={'#font-size'}>Font size</label>
-                        <select disabled={true} value={16} className={'settings__font-size-select'} name={'font-size'} id={'#font-size'}>
-                            <option value={14}>14</option>
+                        <select className={'settings__font-size-select'} name={'font-size'} id={'#font-size'}>
                             <option value={16}>16</option>
                             <option value={18}>18</option>
                             <option value={20}>20</option>
                         </select>
                     </div>
-                    <Checkbox checkbox={{id: '#hide-deleted', disabled: true,
+                    <Checkbox checkbox={{id: '#hide-deleted',
                         title: 'Do not save deleted notes and hide Deleted notes'}}/>
                 </div>
             </div>

@@ -6,8 +6,40 @@ import Notes from '../components/pages/Notes/Notes';
 import Card from '../components/pages/Card/Card';
 import Settings from '../components/pages/Settings/Settings';
 import AboutApp from '../components/pages/AboutApp/AboutApp';
+import {useEffect, useState} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import {toggleAuth} from '../redux/authSlice';
+import {getDataBase} from '../redux/dataBaseSlice';
+import {setNotes} from '../redux/notesSlice';
 
 export default function IndexPage() {
+
+    const [emailInput, setEmailInput] = useState('');
+    const loginEmailHandler = (event) => setEmailInput(event.target.value);
+
+    const [passwordInput, setPasswordInput] = useState('');
+    const loginPasswordHandler = (event) => setPasswordInput(event.target.value);
+
+    const dispatch = useDispatch();
+    const {isAuth} = useSelector((state) => state.auth);
+    const {dataBase} = useSelector((state) => state.dataBase);
+
+    useEffect(() => {
+        dispatch(getDataBase());
+    }, [isAuth]);
+
+
+    const loginProps = {
+        headerTitle: 'Log in to Simple Notes',
+        formProps: {
+            inputItems: [
+                {id: '#section-email-input', className: 'form__input', labelTitle: 'Email', type: 'email', placeholder: 'Enter email', handler: loginEmailHandler},
+                {id: '#section-password-input', className: 'form__input', labelTitle: 'Password', type: 'password', placeholder: 'Enter password', handler: loginPasswordHandler}
+            ],
+            buttonProps: {title: 'Login', type: 'submit'},
+            linkProps: [{id: '1', className: 'button-link', path: 'signup', title: 'Create new account', type: 'button', isLink: true}]
+        }
+    }
     const signUpProps = {
         headerTitle: 'Sign up to Simple Notes',
         formProps: {
@@ -16,50 +48,29 @@ export default function IndexPage() {
                 {id: '#section-password-input', className: 'form__input', labelTitle: 'Password', type: 'password', placeholder: 'Enter password'}
             ],
             buttonProps: {title: 'Sign up', type: 'submit'},
-            linkProps: [{id: '1', className: 'button-link', title: 'Already have an account', type: 'button', isLink: true}]
+            linkProps: [{id: '1', className: 'button-link', path: '/', title: 'Already have an account', type: 'button', isLink: true}]
         }
     };
-    const loginProps = {
-        headerTitle: 'Log in to Simple Notes',
-        formProps: {
-            inputItems: [
-                {id: '#section-email-input', className: 'form__input', labelTitle: 'Email', type: 'email', placeholder: 'Enter email'},
-                {id: '#section-password-input', className: 'form__input', labelTitle: 'Password', type: 'password', placeholder: 'Enter password'}
-            ],
-            buttonProps: {title: 'Sign up', type: 'submit'},
-            linkProps: [{id: '1', className: 'button-link', title: 'Already have an account', type: 'button', isLink: true}]
-        }
-    }
-    const notesProps = {
-        headerTitle: 'Simple Notes',
-        notes: [
-            {id: '1', title: `Купить хлеб`},
-            {id: '2', title: `Совещание в 20 часов`},
-            {id: '3', title: `Книга Грокаем алгоритмы`}
-        ],
-        buttons: [
-            {id: '1', title: 'Add note',
-                name: 'addNote', backgroundColor: 'blue'},
-            {id: '2', title: 'Edit active note',
-                name: 'editNote', backgroundColor: 'light-blue'},
-            {id: '3', title: 'Delete selected notes',
-                name: 'deleteNote', backgroundColor: 'red'}
-        ]
-    };
-    const deletedNotesProps = {
-        headerTitle: 'Deleted notes',
-        notes: [
-            {id: '1', title: `Купить хлеб`},
-            {id: '2', title: `Совещание в 20 часов`},
-            {id: '3', title: `Книга Грокаем алгоритмы`}
-        ],
-        buttons: [
-            {id: '1', title: 'Recover selected notes',
-                name: 'recoverNotes', backgroundColor: 'light-blue'},
-            {id: '2', title: 'Delete selected notes forever',
-                name: 'deleteNotesForever', backgroundColor: 'red'}
-        ]
-    }
+
+    const notesHeaderTitle = 'Simple Notes';
+    const notesButtons = [
+        {id: '1', title: 'Add note',
+            name: 'addNote', backgroundColor: 'blue'},
+        {id: '2', title: 'Edit active note',
+            name: 'editNote', backgroundColor: 'light-blue'},
+        {id: '3', title: 'Delete selected notes',
+            name: 'deleteNote', backgroundColor: 'red'}
+    ];
+    const {notes} = useSelector((state) => state.notes);
+
+    const deletedNotesHeaderTitle = 'Deleted notes';
+    const deletedNotesButtons = [
+        {id: '1', title: 'Recover selected notes',
+            name: 'recoverNotes', backgroundColor: 'light-blue'},
+        {id: '2', title: 'Delete selected notes forever',
+            name: 'deleteNotesForever', backgroundColor: 'red'}
+    ];
+
     const cardProps = {
         headerTitle: 'Card',
         userNames: [
@@ -67,7 +78,7 @@ export default function IndexPage() {
             {id: '2n', title: 'First name', placeholder: 'Enter first name', editableInput: true, boldInputFont: true}
         ],
         userInfo: [
-            {id: '1i', title: 'Date of birth', placeholder: 'Enter date of birth', editableInput: true},
+            {id: '1i', title: 'Birth date', placeholder: 'Enter date of birth', editableInput: true},
             {id: '2i', title: 'City', placeholder: 'Enter city', editableInput: true},
             {id: '3i', title: 'Country', placeholder: 'Enter country', editableInput: true},
             {id: '4i', title: 'Registration date', value: '01.01.2022'}
@@ -96,22 +107,43 @@ export default function IndexPage() {
         ]
     };
 
-    const isAuth = false;
+    const loginSubmitHandler = (event) => {
+        event.preventDefault();
+
+        let authUserId = null;
+
+        const foundUser = dataBase.users.find((user) => {
+            authUserId = user.id;
+            return user.email === emailInput && user.password === passwordInput
+        });
+
+        if (foundUser) {
+            const authUserNotes = dataBase.notes.filter((item) => {
+                return item.userId === authUserId;
+            })
+            authUserNotes && dispatch(setNotes(authUserNotes));
+            dispatch(toggleAuth());
+        }
+    }
+
+    const signupSubmitHandler = (event) => {
+        event.preventDefault();
+    }
 
     return (
         <Routes>
             <Route path={'/'} element={<Layout isAuth={isAuth}/>} >
                 { isAuth
                     ? <>
-                        <Route index element={<Notes notesProps={notesProps}/>} />
-                        <Route path={'deleted'} element={<Notes notesProps={deletedNotesProps}/>} />
+                        <Route index element={<Notes headerTitle={notesHeaderTitle} buttons={notesButtons} notes={notes} />} />
+                        <Route path={'deleted'} element={<Notes headerTitle={deletedNotesHeaderTitle} buttons={deletedNotesButtons}/>} />
                         <Route path={'card'} element={<Card cardProps={cardProps}/>} />
                         <Route path={'settings'} element={<Settings settingsProps={settingsProps}/>} />
                         <Route path={'about'} element={<AboutApp aboutAppProps={aboutAppProps} />} />
                     </>
                     : <>
-                        <Route index element={<Auth authProps={signUpProps}/>} />
-                        <Route path={'login'} element={<Auth authProps={loginProps}/>} />
+                        <Route index element={<Auth authProps={loginProps} submitHandler={loginSubmitHandler}/>} />
+                        <Route path={'signup'} element={<Auth authProps={signUpProps} submitHandler={signupSubmitHandler}/>} />
                         <Route path={'about'} element={<AboutApp aboutAppProps={aboutAppProps}/>} />
                     </>
                 }
