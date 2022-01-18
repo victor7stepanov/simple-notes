@@ -1,4 +1,4 @@
-# Simple Note App
+# Simple Notes App
 
 The app created for working with notes
 
