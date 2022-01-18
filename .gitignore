@@ -24,3 +24,9 @@ yarn-error.log*
 
 # webstorm
 /.idea
+
+# other
+/.firebase
+.firebaserc
+firebase.json
+/.github

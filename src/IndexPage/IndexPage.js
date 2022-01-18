@@ -26,7 +26,7 @@ export default function IndexPage() {
 
     useEffect(() => {
         dispatch(getDataBase());
-    }, [isAuth]);
+    }, []);
 
 
     const loginProps = {

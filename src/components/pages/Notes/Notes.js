@@ -15,7 +15,7 @@ export default function Notes({headerTitle, buttons, notes}) {
                                     name={button.name}
                             />
                         )
-                    }) }
+                    }) }n
                 </div>
                 <ul className={'notes__list'}>
                     { notes
@@ -26,7 +26,7 @@ export default function Notes({headerTitle, buttons, notes}) {
                                     </li>
                                 )
                               })
-                        : <p>Заметок пока нет</p>
+                        : <p>No notes yet</p>
                     }
                 </ul>
             </div>
